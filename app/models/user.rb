@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
         
-         has_many :items
-         has_many :buyers
+         # has_many :items
+         # has_many :buyers
 
          validates :nickname,          presence: true
-         validates :last_name_kanji,   presence: true
-         validates :first_name_kanji,  presence: true
-         validates :last_name_kana,    presence: true
-         validates :first_name_kana,   presence: true
+         validates :last_name_kanji,   presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角で入力してください'}
+         validates :first_name_kanji,  presence: true, format: {with: /\A[ぁ-んァ-ン一-龥]/, message: 'は全角で入力してください'}
+         validates :last_name_kana,    presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: 'は全角カナで入力してください'}
+         validates :first_name_kana,   presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: 'は全角カナで入力してください'}
          validates :birthday,          presence: true
          validates :password,          length: { minimum: 6 }
          PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
