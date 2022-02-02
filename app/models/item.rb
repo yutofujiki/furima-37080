@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   validates :name,                 presence: true
   validates :price,                presence: true , inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
   validates :explanation,          presence: true
+  validates :image,                presence: true
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :category_id,          numericality: { other_than: 1 , message: "can't be blank"} 
   validates :delivery_price_id,    numericality: { other_than: 1 , message: "can't be blank"} 
