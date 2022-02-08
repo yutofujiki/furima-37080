@@ -10,4 +10,10 @@ class BuyerAddress
   end
     validates :prefecture_id,        numericality: { other_than: 1 , message: "can't be blank"} 
 
-  end
+    def save
+      buyer = Buyer.create(user_id: user_id, item_id: item_id)
+
+      Address.create(yubin_number: yubin_number, prefecture_id: prefecture.id, municipality: municipality, address: address, phone_number: phone_number, buyer_id: buyer.id)
+    end
+
+end
