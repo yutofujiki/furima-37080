@@ -68,6 +68,13 @@ RSpec.describe Address, type: :model do
           expect(@buyer_address.errors.full_messages).to include("Prefecture can't be blank")  
         end
 
+        it 'トークンが空では登録できない' do
+          @buyer_address.token = nil
+          @buyer_address.valid?
+          expect(@buyer_address.errors.full_messages).to include("Token can't be blank")
+        end
+
+
       end
 
 
