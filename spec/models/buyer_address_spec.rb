@@ -19,7 +19,7 @@ RSpec.describe Address, type: :model do
       
       it'buildingが空でも登録できる'do
       @buyer_address.building = ""
-      @buyer_address.valid?
+      expect(@buyer_address).to be_valid
       end
 
     end
