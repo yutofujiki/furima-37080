@@ -3,9 +3,9 @@ class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  before_action :move_to_edit, only: :edit
+  before_action :move_to_edit, only: [:edit, :destroy]
 
-  before_action :move_to_not_buy2, only:  :edit
+  before_action :move_to_not_buy2, only:  [:edit, :destroy]
 
   def index
     @items =Item.all.order("created_at DESC")

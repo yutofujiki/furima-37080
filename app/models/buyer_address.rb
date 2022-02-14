@@ -8,6 +8,8 @@ class BuyerAddress
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "10または11桁の半角英数字で入力してください" }
     validates :token
+    validates :user_id
+    validates :item_id
   end
     validates :prefecture_id,        numericality: { other_than: 1 , message: "can't be blank" } 
 

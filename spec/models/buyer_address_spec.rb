@@ -16,6 +16,11 @@ RSpec.describe Address, type: :model do
       it'全て正しく記入した時(buildingに関しては記入しなくても良い)'do
         expect(@buyer_address).to be_valid
       end
+      
+      it'buildingが空でも登録できる'do
+      @buyer_address.building = ""
+      @buyer_address.valid?
+      end
 
     end
 
@@ -73,6 +78,19 @@ RSpec.describe Address, type: :model do
           @buyer_address.valid?
           expect(@buyer_address.errors.full_messages).to include("Token can't be blank")
         end
+
+        it 'item_idが空では登録できない' do
+          @buyer_address.item_id = nil
+          @buyer_address.valid?
+          expect(@buyer_address.errors.full_messages).to include("Item can't be blank")
+        end
+
+        it 'user_idが空では登録できない' do
+          @buyer_address.user_id = nil
+          @buyer_address.valid?
+          expect(@buyer_address.errors.full_messages).to include("User can't be blank")
+        end
+
 
 
       end
