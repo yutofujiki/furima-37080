@@ -3,7 +3,9 @@ class ItemsController < ApplicationController
   
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  before_action :move_to_edit, only: :edit
+  before_action :move_to_edit, only: [:edit, :destroy]
+
+  before_action :move_to_not_buy2, only:  [:edit, :destroy]
 
   def index
     @items =Item.all.order("created_at DESC")
@@ -54,6 +56,12 @@ class ItemsController < ApplicationController
 
   def move_to_edit
     unless @item.user.id == current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def move_to_not_buy2
+    if @item.buyer.present?
       redirect_to root_path
     end
   end
