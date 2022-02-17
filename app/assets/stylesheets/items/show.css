@@ -205,3 +205,30 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.other-images {
+  display: flex;
+}
+
+.otherimage {
+  margin-right: 10px;
+  margin-top: 10px;
+  height: 150px;
+  width: 150px;
+  justify-content: space-between;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  width: 100px;
+}
+
+#previews {
+  display: flex;
+}
+
+.preview {
+  margin-right: 10px;
+}
