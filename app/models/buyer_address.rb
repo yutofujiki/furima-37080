@@ -3,7 +3,7 @@ class BuyerAddress
   attr_accessor :user_id, :item_id, :yubin_number, :prefecture_id, :municipality, :address, :building, :phone_number, :token
 
   with_options presence: true do
-    validates :yubin_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)" }
+    validates :yubin_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフン(-)を含んでください" }
     validates :municipality
     validates :address
     validates :phone_number, format: { with: /\A\d{10,11}\z/, message: "10または11桁の半角英数字で入力してください" }
@@ -11,7 +11,7 @@ class BuyerAddress
     validates :user_id
     validates :item_id
   end
-    validates :prefecture_id,        numericality: { other_than: 1 , message: "can't be blank" } 
+    validates :prefecture_id,        numericality: { other_than: 1 , message: "を入力してください" } 
 
     def save
       buyer = Buyer.create( user_id: user_id, item_id: item_id )

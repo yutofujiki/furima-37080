@@ -10,11 +10,11 @@ class Item < ApplicationRecord
   validates :images,                presence: true
   validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
   #ジャンルの選択が「--」の時は保存できないようにする
-  validates :category_id,          numericality: { other_than: 1 , message: "can't be blank" } 
-  validates :delivery_price_id,    numericality: { other_than: 1 , message: "can't be blank" } 
-  validates :prefecture_id,        numericality: { other_than: 1 , message: "can't be blank" } 
-  validates :shipping_day_id,      numericality: { other_than: 1 , message: "can't be blank" } 
-  validates :situation_id,         numericality: { other_than: 1 , message: "can't be blank" } 
+  validates :category_id,          numericality: { other_than: 1 , message: "を入力してください" } 
+  validates :delivery_price_id,    numericality: { other_than: 1 , message: "を入力してください" } 
+  validates :prefecture_id,        numericality: { other_than: 1 , message: "を入力してください" } 
+  validates :shipping_day_id,      numericality: { other_than: 1 , message: "を入力してください" } 
+  validates :situation_id,         numericality: { other_than: 1 , message: "を入力してください" } 
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :category
