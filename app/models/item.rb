@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :buyer
   has_many_attached :images
+  has_many :comments
 
   validates :name,                 presence: true
   validates :price,                presence: true , inclusion: { in: 300..9_999_999 }, format: { with: /\A[0-9]+\z/ }
