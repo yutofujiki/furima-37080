@@ -6,6 +6,7 @@ class User < ApplicationRecord
         
          has_many :items
          has_many :buyers
+         has_many :comments
 
          validates :nickname,          presence: true
          validates :last_name_kanji,   presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角で入力してください' }

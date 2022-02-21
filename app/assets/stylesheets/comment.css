@@ -1,0 +1,23 @@
+.comment{
+  display: flex;
+}
+
+.comment p{
+   margin: 0;
+}
+
+.comment-text{
+  display: block;
+  margin-top: 20px;
+}
+
+.comment-submit{
+  display: block;
+  margin-top: 20px;
+}
+
+.user-info{
+  color:rgb(139, 238, 229);
+  font-weight: bold;
+}
+
