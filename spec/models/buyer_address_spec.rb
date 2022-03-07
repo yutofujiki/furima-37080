@@ -35,7 +35,7 @@ RSpec.describe Address, type: :model do
         it 'yubin_numberは3桁-4桁でないと登録できない' do
           @buyer_address.yubin_number = "0000000"
           @buyer_address.valid?
-          expect(@buyer_address.errors.full_messages).to include("Yubin number is invalid. Include hyphen(-)")  
+          expect(@buyer_address.errors.full_messages).to include("Yubin number ハイフン(-)を含んでください")  
         end
         it 'municipalityが空では登録できない' do
           @buyer_address.municipality = ""
@@ -70,7 +70,7 @@ RSpec.describe Address, type: :model do
         it 'prefecture_idが空では登録できない' do
           @buyer_address.prefecture_id = nil
           @buyer_address.valid?
-          expect(@buyer_address.errors.full_messages).to include("Prefecture can't be blank")  
+          expect(@buyer_address.errors.full_messages).to include("Prefecture を入力してください")  
         end
 
         it 'トークンが空では登録できない' do
